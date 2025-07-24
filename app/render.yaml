@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: entfernungstool
+    env: python
+    buildCommand: ""
+    startCommand: "gunicorn app:app"
+    envVars:
+      - key: API_KEY
+        value: eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjNiM2M1OWQ1NTk4YzQ2ZjdhMGVkOGYwYTEzNTFhN2Q0IiwiaCI6Im11cm11cjY0In0=

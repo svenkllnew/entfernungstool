@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Alle Fahrten</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            color: #343a40;
+        }
+
+        a.button {
+            display: inline-block;
+            margin: 1rem 0;
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        a.button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alle gespeicherten Fahrten</h1>
+
+    <a href="{{ url_for('index') }}" class="button">← Zurück zur Datenerfassung</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Kunde</th>
+                <th>Datum</th>
+                <th>Start</th>
+                <th>Ziel</th>
+                <th>Entfernung (km)</th>
+                <th>Fahrzeit (Min)</th>
+                <th>km Start</th>
+                <th>km Ende</th>
+                <th>gefahrene km</th>
+                <th>Zweck</th>
+                <th>Partner</th>
+                <th>Kennzeichen</th>
+                <th>Fahrer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fahrt in fahrten %}
+            <tr>
+                <td>{{ fahrt.id }}</td>
+                <td>{{ fahrt.kunde }}</td>
+                <td>{{ fahrt.datum }}</td>
+                <td>{{ fahrt.start }}</td>
+                <td>{{ fahrt.ziel }}</td>
+                <td>{{ fahrt.entfernung }}</td>
+                <td>{{ fahrt.fahrzeit }}</td>
+                <td>{{ fahrt.km_start }}</td>
+                <td>{{ fahrt.km_ende }}</td>
+                <td>{{ fahrt.gefahrene_km }}</td>
+                <td>{{ fahrt.zweck }}</td>
+                <td>{{ fahrt.partner }}</td>
+                <td>{{ fahrt.kennzeichen }}</td>
+                <td>{{ fahrt.fahrer }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
